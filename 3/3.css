@@ -1,0 +1,299 @@
+/* Reset base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Quicksand', 'Comic Sans MS', Arial, sans-serif;
+    background: linear-gradient(135deg, #f9f6ff 0%, #e3f6fd 100%);
+    min-height: 100vh;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 24px 8px 8px 8px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+.title {
+    font-size: 2.1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #5c3d99;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #c3b6e6;
+}
+
+.level-indicator {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    color: #2d7fa3;
+    font-weight: 600;
+}
+
+.puzzle-area {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto 18px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.memory-card {
+    width: 72px;
+    height: 72px;
+    perspective: 600px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(92,61,153,0.12);
+    background: #fff;
+    border: 2px solid #c3b6e6;
+    transition: box-shadow 0.18s, transform 0.18s;
+    will-change: transform;
+}
+
+.memory-card:active {
+    box-shadow: 0 4px 16px rgba(44, 127, 163, 0.18);
+    transform: scale(1.04);
+}
+
+.memory-card .card-front,
+.memory-card .card-back {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: absolute;
+    top: 0; left: 0;
+    backface-visibility: hidden;
+    transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.memory-card .card-front {
+    background: #fff;
+    z-index: 2;
+    transform: rotateY(180deg);
+}
+
+.memory-card .card-front img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(44,127,163,0.12);
+}
+
+.memory-card .card-back {
+    background: linear-gradient(90deg, #5c3d99 60%, #2d7fa3 100%);
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: bold;
+    z-index: 1;
+    transform: rotateY(0deg);
+    justify-content: center;
+    align-items: center;
+}
+
+.memory-card .card-back span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.memory-card.flipped .card-front {
+    transform: rotateY(0deg);
+}
+
+.memory-card.flipped .card-back {
+    transform: rotateY(-180deg);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 22px;
+    margin: 8px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 16px;
+    border: none;
+    background: linear-gradient(90deg, #5c3d99 60%, #2d7fa3 100%);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(44,127,163,0.12);
+    cursor: pointer;
+    transition: background 0.18s, transform 0.18s;
+}
+
+.btn:active {
+    background: linear-gradient(90deg, #2d7fa3 60%, #5c3d99 100%);
+    transform: scale(1.04);
+}
+
+.restart-btn {
+    background: linear-gradient(90deg, #f7b801 60%, #f18701 100%);
+    color: #fff;
+}
+
+.restart-btn:active {
+    background: linear-gradient(90deg, #f18701 60%, #f7b801 100%);
+}
+
+.popup {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(44,127,163,0.18);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.popup.d-none {
+    display: none;
+}
+
+.popup-content {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(44,127,163,0.18);
+    padding: 32px 18px 24px 18px;
+    text-align: center;
+    max-width: 340px;
+    width: 90vw;
+    animation: popupIn 0.35s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes popupIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+#popup-title {
+    font-size: 1.6rem;
+    color: #5c3d99;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#popup-image {
+    margin-bottom: 12px;
+}
+
+.kevin-vignetta {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.kevin-vignetta img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #5c3d99;
+    box-shadow: 0 2px 8px rgba(44,127,163,0.12);
+    background: #fff;
+}
+
+.kevin-bubble {
+    background: #f7b801;
+    color: #5c3d99;
+    border-radius: 18px;
+    padding: 12px 18px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(44,127,163,0.12);
+    position: relative;
+    max-width: 180px;
+}
+
+.kevin-bubble:after {
+    content: "";
+    position: absolute;
+    left: -18px;
+    bottom: 12px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid #f7b801;
+    border-left: 18px solid transparent;
+}
+
+#popup-message {
+    font-size: 1.1rem;
+    color: #2d7fa3;
+    margin-bottom: 18px;
+}
+
+.next-btn {
+    background: linear-gradient(90deg, #2d7fa3 60%, #5c3d99 100%);
+}
+
+.home-btn {
+    background: linear-gradient(90deg, #f18701 60%, #f7b801 100%);
+    color: #fff;
+}
+
+.d-none {
+    display: none !important;
+}
+
+/* Mobile ottimizzazione */
+@media (max-width: 500px) {
+    .container {
+        max-width: 98vw;
+        padding: 10px 2vw 2vw 2vw;
+        border-radius: 12px;
+    }
+    .puzzle-area {
+        max-width: 98vw;
+        gap: 8px;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+    .memory-card {
+        width: 20vw;
+        height: 20vw;
+        min-width: 60px;
+        min-height: 60px;
+        border-radius: 6vw;
+    }
+    .kevin-vignetta img {
+        width: 48px;
+        height: 48px;
+    }
+    .kevin-bubble {
+        font-size: 0.95rem;
+        padding: 8px 12px;
+        max-width: 120px;
+    }
+    #popup-image img {
+        width: 48vw;
+        height: 48vw;
+        min-width: 120px;
+        min-height: 120px;
+    }
+    .popup-content {
+        max-width: 98vw;
+        padding: 18px 2vw 12px 2vw;
+        border-radius: 10vw;
+    }
+}
