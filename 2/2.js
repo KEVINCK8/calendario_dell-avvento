@@ -1,6 +1,6 @@
 const today = new Date();
 if (!(today.getMonth() === 11 && today.getDate() >= 2)) { // Dicembre (0-based) e giorno >= 2
-    window.location.href = "../index/index.html";
+    window.location.href = "../index.html";
 }
 
 const lanes = [80, 140, 200]; // Inizio di ogni corsia (larghezza corsia: 60px)
@@ -268,7 +268,7 @@ function playSound(type) {
 
 document.getElementById("retry-btn").addEventListener("click", startGame);
 document.getElementById("home-btn").addEventListener("click", function() {
-    window.location.href = "../index/index.html";
+    window.location.href = "../index.html";
 });
 
 startGame();

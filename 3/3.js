@@ -1,7 +1,7 @@
 // Blocco controllo data: consente l'accesso solo dal 3 dicembre in poi
 const today = new Date();
 if (!(today.getMonth() === 10 && today.getDate() >= 3)) { // Dicembre (0-based) e giorno >= 3
-    window.location.href = "../index/index.html";
+    window.location.href = "../index.html";
 }
 
 // Immagini memory (ognuna appare due volte)
@@ -148,7 +148,7 @@ function startGame() {
 }
 
 homeBtn.addEventListener("click", () => {
-    window.location.href = "../index/index.html";
+    window.location.href = "../index.html";
 });
 
 startGame();
