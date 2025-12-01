@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         btn.textContent = isUnlocked ? "Apri" : "Bloccato";
         btn.disabled = !isUnlocked;
         btn.onclick = function () {
-            window.location.href = `/${day}/${day}.html`;
+            window.location.href = `../${day}/${day}.html`;
         };
 
         dayBox.appendChild(dayNum);
