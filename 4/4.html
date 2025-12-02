@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Patatino</title>
+    <link rel="stylesheet" href="4.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <span id="letter-R" class="letter">_</span>
+            <span id="letter-E" class="letter">_</span>
+            <span id="letter-D" class="letter">_</span>
+            <span id="letter-BU" class="letter">__</span>
+            <span id="letter-LL" class="letter">__</span>
+        </div>
+        <div class="kevin-area">
+            <img src="kevin.jpeg" alt="Kevin" class="kevin-img animate-kevin">
+            <div class="speech-bubble animate-bubble" id="bubble">
+                AIUTO IL PATATINO STA IMPAZZENDOOO!!!<br>
+                BAU BAU BAU BAU BAU<br>
+                !!! rispondi alle domande correttamente per curarlo !!!
+            </div>
+            <button id="start-quiz" class="start-btn animate-btn">Inizia Quiz</button>
+            <div id="warning-msg" style="display:none; color:#e74c3c; font-weight:bold; margin-top:10px;">
+                Se sbagli dovrai riniziare da capo quindi concentrati!
+            </div>
+        </div>
+        <div class="quiz-area" id="quiz-area" style="display:none;">
+            <!-- Qui vengono inserite le domande via JS -->
+        </div>
+        <div class="final-area" id="final-area" style="display:none;">
+            <h2 class="animate-final">Complimenti hai curato il patatino!</h2>
+            <div class="redbull-area">
+                <span class="redbull-text animate-redbull">REDBULL</span>
+                <img src="redbull.jpg" alt="Redbull" class="redbull-img animate-redbull-img">
+            </div>
+            <button id="show-hint" class="animate-btn">Scopri indizio</button>
+            <div id="hint" style="display:none;">
+                <p class="animate-hint">IL TUO REGALO L'HO COMPRATO MOLTO LONTANO E NON MELHANNO SPEDITO</p>
+                <button onclick="window.location.href='../index.html'" class="animate-btn">Torna alla home</button>
+            </div>
+        </div>
+    </div>
+    <script src="4.js"></script>
+</body>
+</html>
