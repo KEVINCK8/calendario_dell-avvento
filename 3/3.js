@@ -1,5 +1,3 @@
-// Blocco controllo data: consente l'accesso solo dal 3 dicembre in poi
-const today = new Date();
 
 
 // Immagini memory (ognuna appare due volte)
