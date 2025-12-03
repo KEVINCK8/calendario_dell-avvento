@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruciverba Verticale Patatino</title>
+    <link rel="stylesheet" href="5.css">
+</head>
+<body>
+    <div class="container">
+        <div id="popup-initial" class="popup">
+            <div class="popup-content">
+                <img src="kevin.jpeg" alt="Kevin narratore" class="popup-img">
+                <p>
+                    Ecco a te il cruciverba patatino!<br>
+                    Clicca sulle caselle e rispondi alle domande in alto per completare il livello!
+                </p>
+                <button id="start-crossword">Inizia</button>
+            </div>
+        </div>
+        <div class="question-area" id="question-area" style="display:none;">
+            <span id="question-text">Clicca su una parola per iniziare!</span>
+        </div>
+        <div class="words-list" id="words-list" style="display:none;">
+            <!-- Lista parole generata da JS -->
+        </div>
+        <div id="input-area" class="input-area" style="display:none;">
+            <input type="text" id="answer-input" maxlength="15" autocomplete="off" placeholder="Scrivi la risposta...">
+            <button id="submit-answer">Invia</button>
+        </div>
+        <div id="popup-final" class="popup" style="display:none;">
+            <div class="popup-content">
+                <img src="kevinmod.png" alt="Kevin narratore finale" class="popup-img">
+                <h2>BRAVISSIMA PATATINA!!!</h2>
+                <p>
+                    HAI COMPLETATO IL LIVELLO MA è ancora presto.<br>
+                    L'indizio di oggi è che il regalo si trova in ....
+                </p>
+                <button onclick="window.location.href='../index.html'">Clicca per tornare alla home</button>
+            </div>
+        </div>
+    </div>
+    <script src="5.js"></script>
+</body>
+</html>
