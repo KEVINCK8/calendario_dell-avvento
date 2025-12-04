@@ -1,7 +1,4 @@
-const today = new Date();
-if (!(today.getMonth() === 10 && today.getDate() >= 4)) { // Dicembre (0-based) e giorno >= 3
-    window.location.href = "../index.html";
-}
+
 // Quiz data
 const quiz = [
     {
