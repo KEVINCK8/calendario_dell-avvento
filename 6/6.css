@@ -1,0 +1,149 @@
+/* Reset base */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+    background: #f7f3e9;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Popup generico */
+.popup {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.popup.active {
+    display: flex;
+}
+.popup-content {
+    background: #fffbe6;
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    max-width: 90vw;
+}
+.popup-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 16px;
+}
+.popup-content button {
+    margin-top: 18px;
+    padding: 12px 28px;
+    background: #f7c873;
+    color: #6d4c1c;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s;
+}
+.popup-content button:hover {
+    background: #ffe1a8;
+}
+
+/* Barra percentuale */
+#progress-bar-container {
+    width: 90vw;
+    max-width: 500px;
+    margin: 18px auto 8px auto;
+    background: #e6d7b6;
+    border-radius: 16px;
+    height: 32px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+#progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #f7c873 60%, #ffe1a8 100%);
+    border-radius: 16px 0 0 16px;
+    width: 0%;
+    transition: width 0.3s;
+}
+#progress-text {
+    position: absolute;
+    right: 16px;
+    color: #6d4c1c;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+/* Canvas gioco */
+#game-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+#game-canvas {
+    background: #fffbe6;
+    border: 3px solid #f7c873;
+    border-radius: 18px;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    touch-action: none;
+    max-width: 98vw;
+    max-height: 70vw;
+}
+#swipe-info {
+    margin: 12px auto 0 auto;
+    color: #6d4c1c;
+    font-size: 1.1em;
+    text-align: center;
+    background: #ffe1a8;
+    border-radius: 10px;
+    padding: 8px 16px;
+    max-width: 90vw;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Responsive mobile */
+@media (max-width: 600px) {
+    .popup-content {
+        padding: 18px 8px;
+        font-size: 1em;
+    }
+    #progress-bar-container {
+        height: 24px;
+        font-size: 0.95em;
+    }
+    #game-canvas {
+        max-width: 98vw;
+        max-height: 70vw;
+        border-width: 2px;
+    }
+    #swipe-info {
+        font-size: 1em;
+        padding: 6px 8px;
+    }
+}
+
+/* Responsive landscape */
+@media (orientation: landscape) and (max-width: 900px) {
+    #game-canvas {
+        max-width: 70vw;
+        max-height: 50vw;
+    }
+}
+
+/* Nascondi scrollbar su mobile */
+body::-webkit-scrollbar {
+    display: none;
+}

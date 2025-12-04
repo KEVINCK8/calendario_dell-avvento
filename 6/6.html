@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipita Snake - Calendario dell'Avvento</title>
+    <link rel="stylesheet" href="6.css">
+</head>
+<body>
+    <!-- Popup iniziale -->
+    <div id="start-popup" class="popup active">
+        <div class="popup-content">
+            <img src="PIPITA.png" alt="Pipita" class="popup-img">
+            <p>Ciao Vero sono Pix e ho tanta fame, aiutami a mangiare tutte le crocchette!</p>
+            <button id="start-btn">Inizia a giocare</button>
+        </div>
+    </div>
+
+    <!-- Barra percentuale -->
+    <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+        <span id="progress-text">0%</span>
+    </div>
+
+    <!-- Canvas gioco -->
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        <div id="swipe-info">Scorri sullo schermo per comandare Pipita</div>
+    </div>
+
+    <!-- Popup finale -->
+    <div id="end-popup" class="popup">
+        <div class="popup-content">
+            <p>Grazie Vero, finalmente ho trovato tutte le mie crocchette! In cambio ti do il mio indizio.</p>
+            <button id="show-hint-btn">Scopri indizio</button>
+        </div>
+    </div>
+
+<!-- Popup indizio -->
+<div id="hint-popup" class="popup">
+    <div class="popup-content">
+        <img src="PIPITA.png" alt="Pipita" class="popup-img">
+        <h1>GRAZIEE PATATINA</h1>
+        <p>INDIZIO: il tuo regalo è già impacchettato.</p>
+        <button id="back-home-btn">Torna alla HOME</button>
+    </div>
+</div>
+
+<script src="6.js"></script>
+</body>
+</html>
