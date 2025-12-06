@@ -1,0 +1,156 @@
+/* Reset base */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+    background: #f7f3e9;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Popup generico */
+.popup {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.popup.active {
+    display: flex;
+}
+.popup-content {
+    background: #fffbe6;
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    max-width: 90vw;
+}
+.popup-content h2 {
+    margin-top: 0;
+    color: #6d4c1c;
+}
+.popup-content button {
+    margin-top: 18px;
+    padding: 12px 28px;
+    background: #f7c873;
+    color: #6d4c1c;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s;
+}
+.popup-content button:hover {
+    background: #ffe1a8;
+}
+.popup-img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Puzzle board */
+#game-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 24px;
+}
+#puzzle-board {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(3, 90px);
+    gap: 6px;
+    background: #ffe1a8;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 12px;
+    margin-bottom: 18px;
+    touch-action: none;
+}
+.puzzle-piece {
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: #fffbe6;
+    cursor: grab;
+    transition: box-shadow 0.2s, transform 0.1s;
+    object-fit: cover;
+    border: 2px solid #f7c873;
+    user-select: none;
+}
+.puzzle-piece.dragging {
+    opacity: 0.7;
+    box-shadow: 0 0 0 4px #f7c873;
+    z-index: 2;
+}
+.puzzle-piece.over {
+    box-shadow: 0 0 0 4px #ffe1a8;
+}
+
+/* Info */
+#puzzle-info {
+    color: #6d4c1c;
+    font-size: 1.1em;
+    text-align: center;
+    background: #ffe1a8;
+    border-radius: 10px;
+    padding: 8px 16px;
+    max-width: 90vw;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Responsive mobile */
+@media (max-width: 600px) {
+    .popup-content {
+        padding: 18px 8px;
+        font-size: 1em;
+    }
+    #puzzle-board {
+        grid-template-columns: repeat(3, 28vw);
+        grid-template-rows: repeat(3, 28vw);
+        gap: 2vw;
+        padding: 2vw;
+    }
+    .puzzle-piece {
+        width: 28vw;
+        height: 28vw;
+        font-size: 0.9em;
+    }
+    #puzzle-info {
+        font-size: 1em;
+        padding: 6px 8px;
+    }
+}
+
+/* Responsive landscape */
+@media (orientation: landscape) and (max-width: 900px) {
+    #puzzle-board {
+        grid-template-columns: repeat(3, 18vw);
+        grid-template-rows: repeat(3, 18vw);
+    }
+    .puzzle-piece {
+        width: 18vw;
+        height: 18vw;
+    }
+}
+
+/* Nascondi scrollbar su mobile */
+body::-webkit-scrollbar {
+    display: none;
+}
